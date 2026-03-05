@@ -56,15 +56,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      {/* Background gradient orbs */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-600/10 blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[120px]" />
-        <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] rounded-full bg-blue-600/5 blur-[100px]" />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 py-12 md:py-20">
+    <main className="min-h-screen">
+      <div className="max-w-3xl mx-auto px-5 py-16 md:py-24">
         {/* Header */}
         <motion.header
           initial={{ opacity: 0, y: -30 }}
@@ -72,17 +65,11 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-sm mb-6">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
-            </svg>
-            AI-Powered Movie Insights
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-            Movie <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Insights</span>
+          <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
+            Movie Insights
           </h1>
-          <p className="mt-4 text-white/40 text-lg max-w-md mx-auto">
-            Enter an IMDb ID to discover movie details and AI-analyzed audience sentiment
+          <p className="mt-3 text-neutral-500 text-base max-w-sm mx-auto">
+            Enter an IMDb ID to get movie details and audience sentiment
           </p>
         </motion.header>
 
@@ -100,7 +87,7 @@ export default function Home() {
               exit={{ opacity: 0, y: -10 }}
               className="max-w-xl mx-auto mb-8"
             >
-              <div className="px-5 py-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-center">
+              <div className="px-5 py-4 rounded-xl bg-red-950/40 border border-red-900/30 text-red-400 text-center text-sm">
                 {error}
               </div>
             </motion.div>
@@ -133,11 +120,10 @@ export default function Home() {
             transition={{ delay: 0.5 }}
             className="text-center mt-20"
           >
-            <div className="text-6xl mb-4">🎬</div>
-            <p className="text-white/20 text-lg">
-              Search for a movie to get started
+            <p className="text-neutral-600 text-sm">
+              Try one of these:
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <div className="mt-4 flex flex-wrap justify-center gap-2">
               {[
                 { id: "tt0133093", name: "The Matrix" },
                 { id: "tt0111161", name: "Shawshank Redemption" },
@@ -146,9 +132,9 @@ export default function Home() {
                 <button
                   key={m.id}
                   onClick={() => handleSearch(m.id)}
-                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white/40 text-sm hover:bg-white/10 hover:text-white/60 transition-all duration-200"
+                  className="px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-400 text-sm hover:bg-neutral-800 hover:text-neutral-300 transition-colors duration-150"
                 >
-                  {m.name} <span className="text-white/20">{m.id}</span>
+                  {m.name} <span className="text-neutral-600">{m.id}</span>
                 </button>
               ))}
             </div>
